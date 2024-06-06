@@ -1,0 +1,33 @@
+.pizza-item-container {
+    
+    border-radius: 1em;
+    border: 2px solid black;
+    border-collapse: collapse;
+  }
+
+  .pizza_item {
+    justify-content: center;
+    background-color: dimgray;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    
+  }
+  
+  img {
+    width: 300px;
+  }
+  
+  .pizza_description {
+    width: 300px;
+    text-align: left;
+  }
+
+  .remove {
+    background-color: red;
+  }
+
+  .add {
+
+    background-color: green;
+  }
