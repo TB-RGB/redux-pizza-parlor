@@ -2,6 +2,7 @@ import axios from "axios"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react"
 import PizzaList from "../PizzaList/PizzaList"
+import Header from "../Header/Header"
 const PizzaShop = () => {
 
     const dispatch = useDispatch()
@@ -21,6 +22,7 @@ axios.get('/api/pizza')
 
     return (
         <>
+        <Header />
         <PizzaList />
         </>
     )

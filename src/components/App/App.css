@@ -4,10 +4,14 @@
 
 .App-header {
   background-color: #222;
-  height: 70px;
+  height: 80px;
   padding: 20px;
   color: white;
   margin-bottom: 20px;
+}
+
+.total {
+  justify-content: right;
 }
 
 .App-title {

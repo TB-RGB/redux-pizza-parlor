@@ -45,6 +45,9 @@ const cart = (state={ pizzas: []},action)=>{
           ...state,
           pizzas: state.pizzas.filter(pizza => pizza.id !== action.payload.id)
         };
+      
+      case 'DROP_CART':
+        return { pizzas: []}
         
       default:
         return state;

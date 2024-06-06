@@ -10,9 +10,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <header className="App-header">
-          <h1 className="App-title">Prime Pizza</h1>
-        </header>
         <Route exact path='/'>
             <PizzaShop />
         </Route>
@@ -24,7 +21,7 @@ function App() {
         <Route path='/checkout'>
           <Checkout />
         </Route>
-        
+
       </Router>
     </div>
   );

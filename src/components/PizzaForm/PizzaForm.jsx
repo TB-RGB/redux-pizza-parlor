@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Header from "../Header/Header";
 function PizzaForm(){
    
 
@@ -76,6 +77,8 @@ function PizzaForm(){
     const history = useHistory();
 
     return(
+      <>
+      <Header />
         <form onSubmit= {addCustomer}>
 
             <h2> Step 2: Customer Information</h2>
@@ -116,6 +119,7 @@ function PizzaForm(){
 
       <button type="submit"> NEXT </button>
         </form>
+        </>
 
     )
 }
