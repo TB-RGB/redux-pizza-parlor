@@ -20,10 +20,11 @@ const customerInfo = (state={}, action)=>{
   }
 }
 
-const cart = (state={pizzas:[]},action)=>{
+const cart = (state={},action)=>{
   switch(action.type){
     case 'ADD_PIZZA':
-      return state.pizzas.push(action.payload)
+      
+      return {...state, ...action.payload}
     case 'DROP_PIZZAS':
       return state.pizzas.filter(pizza=>pizza.id != action.payload.id)
     default:

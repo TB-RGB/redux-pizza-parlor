@@ -1,0 +1,11 @@
+.pizza_list {
+    display: flex; /* Use flexbox */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    justify-self: center;
+    justify-content: space-around; /* Space items evenly along the main axis */
+    padding: 20px; /* Add padding for spacing */
+  }
+
