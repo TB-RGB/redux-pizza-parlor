@@ -18,20 +18,18 @@ function AdminPage() {
 
     //Tough to debug
     const fetchOrders = () => {
-        axios.get('/api/order')
-
-            .then((res) => {
-
-                dispatch({
-                    type: 'SET_ORDERS',
-                    payload: res.data,
-                });
-
-            })
-            .catch(err => {
-                console.error('FAILED GET /api/order', err)
-            })
-    }
+        axios.get('api/order')
+        .then((response) => {
+          // Dispatch
+          
+          dispatch({type: 'SET_ORDER', payload: response.data})
+    
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    
+      }
 
 
 
