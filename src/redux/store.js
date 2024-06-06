@@ -40,10 +40,14 @@ const cart = (state={ pizzas: []},action)=>{
         };
       }
     
-    case 'DROP_PIZZAS':
-      return state.pizzas.filter(pizza=>pizza.id != action.payload.id)
-    default:
-      return state
+      case 'DROP_PIZZAS':
+        return {
+          ...state,
+          pizzas: state.pizzas.filter(pizza => pizza.id !== action.payload.id)
+        };
+        
+      default:
+        return state;
   }
 }
 

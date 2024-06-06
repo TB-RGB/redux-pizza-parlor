@@ -22,3 +22,12 @@
     width: 300px;
     text-align: left;
   }
+
+  .remove {
+    background-color: red;
+  }
+
+  .add {
+
+    background-color: green;
+  }
