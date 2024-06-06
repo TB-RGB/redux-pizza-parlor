@@ -20,14 +20,34 @@ const customerInfo = (state={}, action)=>{
   }
 }
 
-const cart = (state={pizzas:[]},action)=>{
-  switch(action.type){
+const cart = (state={ pizzas: []},action)=>{
+  switch(action.type) {
     case 'ADD_PIZZA':
-      return state.pizzas.push(action.payload)
-    case 'DROP_PIZZAS':
-      return state.pizzas.filter(pizza=>pizza.id != action.payload.id)
-    default:
-      return state
+      const pizzaIdToAdd = action.payload.id;
+      const pizzaAlreadyInCart = state.pizzas.find(pizza => pizza.id === pizzaIdToAdd);
+
+      if (pizzaAlreadyInCart) {
+        // If the pizza already exists in the cart, do nothing
+        return state;
+      } else {
+        // If the pizza doesn't exist in the cart, add it
+        return {
+          ...state,
+          pizzas: [
+            ...state.pizzas,
+            { id: pizzaIdToAdd, quantity: 1 }
+          ]
+        };
+      }
+    
+      case 'DROP_PIZZAS':
+        return {
+          ...state,
+          pizzas: state.pizzas.filter(pizza => pizza.id !== action.payload.id)
+        };
+        
+      default:
+        return state;
   }
 }
 
