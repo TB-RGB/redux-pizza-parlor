@@ -6,6 +6,7 @@ const someReducer = (state = [], action) => {
   return state;
 }
 
+
 const store = createStore(
   combineReducers({
     someReducer, // 👈 Be sure to replace this, too!
