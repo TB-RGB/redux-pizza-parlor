@@ -2,13 +2,40 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
 
 // Be sure to replace this reducer! 🙂
-const someReducer = (state = [], action) => {
-  return state;
+const pizzas = (state = [], action) => {
+  switch(action.type){
+    case 'SET_PIZZAS':
+      return action.payload
+    default:
+      return state
+  }
+}
+
+const customerInfo = (state={}, action)=>{
+  switch(action.type){
+    case 'ADD_INFO':
+      return action.payload
+    default:
+      return state
+  }
+}
+
+const cart = (state={pizzas:[]},action)=>{
+  switch(action.type){
+    case 'ADD_PIZZA':
+      return state.pizzas.push(action.payload)
+    case 'DROP_PIZZAS':
+      return state.pizzas.filter(pizza=>pizza.id != action.payload.id)
+    default:
+      return state
+  }
 }
 
 const store = createStore(
   combineReducers({
-    someReducer, // 👈 Be sure to replace this, too!
+    pizzas,
+    customerInfo,
+    cart // 👈 Be sure to replace this, too!
   }),
   applyMiddleware(logger),
 );
