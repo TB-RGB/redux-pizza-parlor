@@ -15,7 +15,7 @@ const toggleDescription = () => {
   };
   const toggleCart = () => {
     if (inCart === false){
-        dispatch({type: 'ADD_PIZZA', payload: {pizza:[{id: pizza.id, quantity: 1}]}})
+        dispatch({type: 'ADD_PIZZA', payload: {id: pizza.id}})
     }
     setInCart(!inCart)
   }
@@ -35,7 +35,7 @@ const toggleDescription = () => {
             <div onClick={toggleDescription}>
             {showDescription ? <div className="center" ><p className='pizza_description'>{pizza.description}</p></div> : <img src={pizza.image_path}></img>}
             </div>
-            <div onClick={toggleCart}>
+            <div onClick={() => toggleCart(pizza.id)}>
                 {inCart ? <p>REMOVE</p> : <p>ADD</p>}
             </div>
             
