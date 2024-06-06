@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
 function PizzaForm(){
    
+
+  const dispatch = useDispatch()
+
     let [customerToAdd, setCustomerToAdd] = useState({ 
         customerName:'',
         streetName:'',
         city: '',
-        zip: ''
+        zip: '',
+        type: ''
 
     });
 
@@ -16,11 +20,19 @@ function PizzaForm(){
 
     const handlePickupClick = () => {
         setIsPickup(true);
+        setCustomerToAdd({
+          ...customerToAdd,
+          type: 'Pickup'
+        })
         console.log('Pickup button clicked');
       };
 
       const handleDeliveryClick = () => {
         setIsPickup(false);
+        setCustomerToAdd({
+          ...customerToAdd,
+          type: 'Delivery'
+        })
         console.log('Delivery button clicked');
       };
 
@@ -55,8 +67,9 @@ function PizzaForm(){
 
       const addCustomer = (event) =>{
         event.preventDefault();
+        dispatch({type: 'ADD_INFO', payload: customerToAdd})
         console.log('Next button working')
-        history.push('/checkout'); 
+        // history.push('/checkout'); 
       }
       
 
