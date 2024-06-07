@@ -1,4 +1,6 @@
+import { AppBar, IconButton, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Header = () => {
   const cart = useSelector((store) => store.cart);
@@ -15,10 +17,13 @@ const Header = () => {
   });
   return (
     <>
-      <header className="App-header">
-        <h1 className="App-title">Prime Pizza</h1>
-        <span className="total">Total: {`$${price}`}</span>
-      </header>
+      <AppBar position="static">
+        <Typography variant="h2" align="center">Prime Pizza</Typography>
+        <IconButton edge='end'>
+            <ShoppingCartIcon />
+            Total: {`$${price}`}
+            </IconButton>
+      </AppBar>
     </>
   );
 };

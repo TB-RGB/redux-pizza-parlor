@@ -1,7 +1,11 @@
+import { AppBar, Typography } from "@mui/material"
+
 const CheckoutHeader = ()=>{
     return(
         <>
-        <header>Prime Pizza</header>
+        <AppBar position="static">
+            <Typography variant="h2">Prime Pizza</Typography>
+        </AppBar>
         </>
     )
 }

@@ -5,6 +5,11 @@ import "./App.css";
 import PizzaShop from "../PizzaShop/PizzaShop";
 import PizzaForm from "../PizzaForm/PizzaForm";
 import Checkout from "../Checkout/Checkout";
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 
 function App() {
   return (

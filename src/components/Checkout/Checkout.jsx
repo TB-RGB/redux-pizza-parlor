@@ -55,7 +55,7 @@ const Checkout = ()=>{
         <h3>${price}</h3>
         <button onClick={()=>postOrder()}>Checkout</button>
         <br />
-        {JSON.stringify(fullOrder)}
+        {/* {JSON.stringify(fullOrder)} */}
         </>
     )
 }

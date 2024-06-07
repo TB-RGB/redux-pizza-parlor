@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -16,4 +16,8 @@
 
 .App-title {
   font-size: 2em;
+} */
+
+body {
+  font-family: 'Roboto', sans-serif;
 }
