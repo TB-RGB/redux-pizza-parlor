@@ -1,0 +1,28 @@
+.pickup{
+    border-radius: 10px;
+    height: 30px;
+    width: 80px;
+    background-color:rgb(45, 167, 201);
+    color: white;
+  }
+  .delivery{
+    border-radius: 10px;
+    height: 30px;
+    width: 80px;
+    background-color:rgb(114, 123, 126);
+    color: white
+  }
+  .next{
+    border-radius: 5px;
+    height: 30px;
+    width: 75px;
+    background-color:rgb(16, 92, 37);
+    color: white;
+  }
+  .inputs{
+      text-align: center;
+      width: 80%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+  }

@@ -65,6 +65,8 @@ const cart = (state = { pizzas: [] }, action) => {
           pizzas: state.pizzas.filter(pizza => pizza.id !== pizzaIdToRemove)
         };
       }
+      case 'DROP_CART':
+        return {pizzas: []}
     default:
       return state;
   }
@@ -84,7 +86,7 @@ const store = createStore(
     pizzas,
     customerInfo,
     cart,
-    orderList // 👈 Be sure to replace this, too!
+    orderList 
   }),
   applyMiddleware(logger),
 );
