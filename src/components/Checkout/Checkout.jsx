@@ -4,6 +4,8 @@ import OrderInfo from "./OrderInfo"
 import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { Box, Button, Typography } from "@mui/material"
+import SendIcon from '@mui/icons-material/Send';
 
 
 const Checkout = ()=>{
@@ -52,10 +54,10 @@ const Checkout = ()=>{
         <CheckoutHeader />
         <OrderInfo />
         <CheckoutTable tableArray={tableArray} />
-        <h3>${price}</h3>
-        <button onClick={()=>postOrder()}>Checkout</button>
-        <br />
-        {/* {JSON.stringify(fullOrder)} */}
+        <Typography variant="h4" align="center">${price}</Typography>
+        <Box textAlign={'center'}>
+        <Button variant="contained" endIcon={<SendIcon />} onClick={()=>postOrder()}>Checkout</Button>
+        </Box>
         </>
     )
 }

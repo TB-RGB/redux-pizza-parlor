@@ -1,22 +1,48 @@
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, tableCellClasses } from "@mui/material";
+import { styled } from '@mui/material/styles'
+
 const CheckoutTable = ({ tableArray }) => {
+
+
+    const StyledTableCell = styled(TableCell)(({ theme }) => ({
+        [`&.${tableCellClasses.head}`]: {
+          backgroundColor: theme.palette.common.black,
+          color: theme.palette.common.white,
+        },
+        [`&.${tableCellClasses.body}`]: {
+          fontSize: 14,
+        },
+      }));
+      
+      const StyledTableRow = styled(TableRow)(({ theme }) => ({
+        '&:nth-of-type(odd)': {
+          backgroundColor: theme.palette.action.hover,
+        },
+        // hide last border
+        '&:last-child td, &:last-child th': {
+          border: 0,
+        },
+      }));
   return (
     <>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <td>Price</td>
-          </tr>
-        </thead>
-        <tbody>
-          {tableArray.map((order, i) => (
-            <tr key={i}>
-              <td>{`${order.name}`}</td>
-              <td>{`$${order.price}`}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <StyledTableRow>
+              <StyledTableCell>Name</StyledTableCell>
+              <StyledTableCell>Price</StyledTableCell>
+            </StyledTableRow>
+          </TableHead>
+          <TableBody>
+            {tableArray.map((order, i) => (
+              <StyledTableRow key={i}>
+                <StyledTableCell>{`${order.name}`}</StyledTableCell>
+                <StyledTableCell>{`$${order.price}`}</StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </>
   );
 };

@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material"
 import { useSelector } from "react-redux"
 
 const OrderInfo = ()=>{
@@ -5,12 +6,12 @@ const OrderInfo = ()=>{
 
     return(
         <>
-        <h2>Step 3: Checkout</h2>
-        <p>{customerInfo.customer_name}</p>
-        <p>{customerInfo.street_address}</p>
-        <p>{customerInfo.city} {customerInfo.zip}</p>
+        <Typography variant="h3" sx={{my: 3}}>Step 3: Checkout</Typography>
+        <Typography variant="h6">{customerInfo.customer_name}</Typography>
+        <Typography variant="h6">{customerInfo.street_address}</Typography>
+        <Typography variant="h6">{customerInfo.city} {customerInfo.zip}</Typography>
 
-        <div>{customerInfo.type}</div>
+        <Typography variant="h4" align="right" sx={{mr: 3}}>Type: {customerInfo.type}</Typography>
         </>
     )
 }
