@@ -61,42 +61,42 @@ function PizzaForm(){
     const history = useHistory();
     return(
         <form onSubmit= {addCustomer}>
-            <h2 class='pizzaFormH2'> Step 2: Customer Information</h2>
+            <h2 className='pizzaFormH2'> Step 2: Customer Information</h2>
             <input
             class='inputs'
             onChange={handleNameChange}
             value={customerToAdd.customerName}
             placeholder="Name"/>
             <input
-            class='inputs'
+            className='inputs'
             onChange={handleStreetNameChange}
             value={customerToAdd.streetName}
             placeholder="Street Address"/>
             <input
-            class='inputs'
+            className='inputs'
             onChange={handleCityChange}
             value={customerToAdd.city}
             placeholder="City"/>
             <input
-            class='inputs'
+            className='inputs'
             onChange={handleZipChange}
             value={customerToAdd.zip}
             placeholder="Zip"
             />
             <div>
-    <button class='pickup' type="button" onClick={handlePickupClick}>
+    <button className='pickup' type="button" onClick={handlePickupClick}>
         Pickup
       </button>
-      <button class='delivery' type="button" onClick={handleDeliveryClick}>
+      <button className='delivery' type="button" onClick={handleDeliveryClick}>
         Delivery
       </button>
      </div>
-     <p>Name: {customerToAdd.customerName}</p>
-      <p>Street Address: {customerToAdd.streetName}</p>
+     <p>Name: {customerToAdd.customer_name}</p>
+      <p>Street Address: {customerToAdd.street_address}</p>
       <p>City: {customerToAdd.city}</p>
       <p>Zip: {customerToAdd.zip}</p>
       <p> You chose: {isPickup ? 'Pickup' : 'Delivery'}</p>
-      <button class='next' type="submit"> NEXT </button>
+      <button className='next' type="submit"> NEXT <span>➡️</span></button>
         </form>
     )
 }
