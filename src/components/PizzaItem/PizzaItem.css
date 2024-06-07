@@ -1,33 +1,59 @@
-.pizza-item-container {
-    
-    border-radius: 1em;
+.pizza_item_container {
+    margin: 1px;
+    padding: 10px;
+border-radius: 1em;
     border: 2px solid black;
-    border-collapse: collapse;
+   
+    
   }
 
+  .spread {
+    display: flex;
+    justify-content: space-between;
+  }
   .pizza_item {
+    border: 2px solid black;
     justify-content: center;
     background-color: dimgray;
-    width: 200px;
-    height: 200px;
+    
+   
     margin: 20px;
     
   }
   
   img {
-    width: 300px;
+    width: 250px;
   }
   
   .pizza_description {
-    width: 300px;
+    border: 1px solid black;
+    width: 250px;
+    height: 150px;
     text-align: left;
   }
-
+.pizzacount {
+    font-size: 20px;
+    
+}
   .remove {
-    background-color: red;
+    width: 100px;
+    background-color: rgb(255, 145, 145);
+    font-size: 20px;
+    font-weight: 900;
   }
 
   .add {
-
-    background-color: green;
+width: 100px;
+    background-color: #07aa9e;
+    font-size: 20px;
+    font-weight: 900;
   }
+.clickable {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+button {
+    height: 30px;
+}

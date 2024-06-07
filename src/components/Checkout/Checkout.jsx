@@ -1,11 +1,15 @@
 import CheckoutHeader from "./CheckoutHeader"
 import CheckoutTable from "./CheckoutTable"
 import OrderInfo from "./OrderInfo"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { applyMiddleware } from "redux"
 
 
 const Checkout = ()=>{
+    const dispatch = useDispatch()
+    const history = useHistory()
 
     const customerInfo = useSelector(store=>store.customerInfo)
     const cart = useSelector(store=>store.cart)
@@ -20,18 +24,20 @@ const Checkout = ()=>{
     pizzas.map((pizza) => {
         for (let order of cart.pizzas) {
           if (order.id === pizza.id) {
-            price += Number(pizza.price);
-            tableArray.push({name: pizza.name, price: pizza.price})
+            price += Number(pizza.price)*order.quantity;
+            tableArray.push({name: pizza.name, price: pizza.price, amount: order.quantity})
     
           }
         }
       });
 
       let fullOrder = {...customerInfo, total: price, ...cart}
-
+    //   console.log(fullOrder)
       const postOrder =()=>{
         axios.post('/api/order', fullOrder)
             .then(response =>{
+                dispatch({type: 'DROP_CART'})
+                history.push('/')
                 // dispatch to clear cart
                 // history to navigate to step 1
             })
@@ -50,7 +56,7 @@ const Checkout = ()=>{
         <h3>${price}</h3>
         <button onClick={()=>postOrder()}>Checkout</button>
         <br />
-        {JSON.stringify(fullOrder)}
+       
         </>
     )
 }

@@ -20,15 +20,21 @@ const customerInfo = (state={}, action)=>{
   }
 }
 
-const cart = (state={ pizzas: []},action)=>{
-  switch(action.type) {
+const cart = (state = { pizzas: [] }, action) => {
+  switch (action.type) {
     case 'ADD_PIZZA':
       const pizzaIdToAdd = action.payload.id;
       const pizzaAlreadyInCart = state.pizzas.find(pizza => pizza.id === pizzaIdToAdd);
-
       if (pizzaAlreadyInCart) {
-        // If the pizza already exists in the cart, do nothing
-        return state;
+        // If the pizza already exists in the cart, increase its quantity
+        return {
+          ...state,
+          pizzas: state.pizzas.map(pizza =>
+            pizza.id === pizzaIdToAdd
+              ? { ...pizza, quantity: pizza.quantity + 1 }
+              : pizza
+          )
+        };
       } else {
         // If the pizza doesn't exist in the cart, add it
         return {
@@ -39,24 +45,46 @@ const cart = (state={ pizzas: []},action)=>{
           ]
         };
       }
-    
-      case 'DROP_PIZZAS':
+    case 'DROP_PIZZAS':
+      const pizzaIdToRemove = action.payload.id;
+      const pizzaToRemove = state.pizzas.find(pizza => pizza.id === pizzaIdToRemove);
+      if (pizzaToRemove && pizzaToRemove.quantity > 1) {
+        // If the pizza exists and has a quantity greater than 1, decrease its quantity
         return {
           ...state,
-          pizzas: state.pizzas.filter(pizza => pizza.id !== action.payload.id)
+          pizzas: state.pizzas.map(pizza =>
+            pizza.id === pizzaIdToRemove
+              ? { ...pizza, quantity: pizza.quantity - 1 }
+              : pizza
+          )
         };
-        
+      } else {
+        // If the pizza doesn't exist or has a quantity of 1, remove it from the cart
+        return {
+          ...state,
+          pizzas: state.pizzas.filter(pizza => pizza.id !== pizzaIdToRemove)
+        };
+      }
+    default:
+      return state;
+  }
+};
+
+const orderList = (state=[], action) => {
+  switch(action.type){
+    case 'FETCH_ORDER':
+      return action.payload
       default:
-        return state;
+      return state
   }
 }
-
 
 const store = createStore(
   combineReducers({
     pizzas,
     customerInfo,
-    cart // 👈 Be sure to replace this, too!
+    cart,
+    orderList // 👈 Be sure to replace this, too!
   }),
   applyMiddleware(logger),
 );

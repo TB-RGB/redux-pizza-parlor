@@ -1,0 +1,32 @@
+.admin_page {
+    display: flex;
+    justify-content: space-around;
+    width: 100%; /* Set the width of the container to 100% */
+    overflow-x: auto; /* Add horizontal scrolling if the content overflows */
+}
+
+table {
+
+    width: 75%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    font-size: 21px;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+    height: 4em;
+}
+
+th {
+    background-color: #000000;
+    color: #ffe9ac;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+

@@ -1,9 +1,12 @@
 const CheckoutHeader = ()=>{
     return(
         <>
-        <header>Prime Pizza</header>
-        </>
-    )
-}
+        <header className="App-header">
+          <div className="App-title">Prime <span className="pizza_text">Pizza</span></div>
+          
+        </header>
+      </>
+    );
+  };
 
 export default CheckoutHeader

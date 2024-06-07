@@ -2,7 +2,7 @@
     display: flex; /* Use flexbox */
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
     justify-self: center;
     justify-content: space-around; /* Space items evenly along the main axis */

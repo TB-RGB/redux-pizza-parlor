@@ -1,0 +1,24 @@
+.flex {
+   
+    width: 75%;
+    
+}
+.customer_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: left;
+    padding: 10px;
+
+}
+.order_type {
+    font-size: 40px;
+    
+}
+
+.customer_info {
+    font-size: 25px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}

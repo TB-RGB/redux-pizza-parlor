@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Header from "../Header/Header";
 function PizzaForm(){
    
 
   const dispatch = useDispatch()
 
     let [customerToAdd, setCustomerToAdd] = useState({ 
-        customerName:'',
-        streetName:'',
+        customer_name:'',
+        street_address:'',
         city: '',
         zip: '',
         type: ''
@@ -40,13 +41,13 @@ function PizzaForm(){
     const handleNameChange = (event) => {
         setCustomerToAdd({
           ...customerToAdd,
-          customerName: event.target.value,
+          customer_name: event.target.value,
         });
       }
       const handleStreetNameChange = (event) => {
         setCustomerToAdd({
           ...customerToAdd,
-          streetName: event.target.value,
+          street_address: event.target.value,
         });
       }
 
@@ -69,24 +70,26 @@ function PizzaForm(){
         event.preventDefault();
         dispatch({type: 'ADD_INFO', payload: customerToAdd})
         console.log('Next button working')
-        // history.push('/checkout'); 
+        history.push('/checkout'); 
       }
       
 
     const history = useHistory();
 
     return(
+      <>
+      <Header />
         <form onSubmit= {addCustomer}>
 
             <h2> Step 2: Customer Information</h2>
             <input
             onChange={handleNameChange}
-            value={customerToAdd.customerName}
+            value={customerToAdd.customer_name}
             placeholder="Name"/>
             
             <input
             onChange={handleStreetNameChange}
-            value={customerToAdd.streetName}
+            value={customerToAdd.street_address}
             placeholder="Street Address"/>
             <input
             onChange={handleCityChange}
@@ -107,8 +110,8 @@ function PizzaForm(){
      
 
 
-     <p>Name: {customerToAdd.customerName}</p>
-      <p>Street Address: {customerToAdd.streetName}</p>
+     <p>Name: {customerToAdd.customer_name}</p>
+      <p>Street Address: {customerToAdd.street_address}</p>
       <p>City: {customerToAdd.city}</p>
       <p>Zip: {customerToAdd.zip}</p>
 
@@ -116,6 +119,7 @@ function PizzaForm(){
 
       <button type="submit"> NEXT </button>
         </form>
+        </>
 
     )
 }
