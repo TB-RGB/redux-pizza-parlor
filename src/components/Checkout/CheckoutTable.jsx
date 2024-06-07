@@ -15,7 +15,7 @@ const CheckoutTable = ({ tableArray }) => {
             <tr key={i}>
               <td>{`${order.name}`}</td>
               <td>{`${order.amount}`}</td>
-              <td>{`$${order.price.toFixed(2)}`}</td>
+              <td>{`$${order.price}`}</td>
               
             </tr>
           ))}
