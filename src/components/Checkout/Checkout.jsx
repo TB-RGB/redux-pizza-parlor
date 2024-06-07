@@ -4,6 +4,7 @@ import OrderInfo from "./OrderInfo"
 import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { applyMiddleware } from "redux"
 
 
 const Checkout = ()=>{
@@ -23,8 +24,8 @@ const Checkout = ()=>{
     pizzas.map((pizza) => {
         for (let order of cart.pizzas) {
           if (order.id === pizza.id) {
-            price += Number(pizza.price);
-            tableArray.push({name: pizza.name, price: pizza.price})
+            price += Number(pizza.price)*order.quantity;
+            tableArray.push({name: pizza.name, price: pizza.price, amount: order.quantity})
     
           }
         }
@@ -55,7 +56,7 @@ const Checkout = ()=>{
         <h3>${price}</h3>
         <button onClick={()=>postOrder()}>Checkout</button>
         <br />
-        {JSON.stringify(fullOrder)}
+       
         </>
     )
 }

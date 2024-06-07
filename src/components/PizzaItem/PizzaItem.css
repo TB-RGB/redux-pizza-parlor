@@ -7,6 +7,10 @@ border-radius: 1em;
     
   }
 
+  .spread {
+    display: flex;
+    justify-content: space-between;
+  }
   .pizza_item {
     border: 2px solid black;
     justify-content: center;
@@ -27,16 +31,20 @@ border-radius: 1em;
     height: 150px;
     text-align: left;
   }
-
+.pizzacount {
+    font-size: 20px;
+    
+}
   .remove {
+    width: 100px;
     background-color: rgb(255, 145, 145);
     font-size: 20px;
     font-weight: 900;
   }
 
   .add {
-
-    background-color: rgb(130, 243, 130);
+width: 100px;
+    background-color: #07aa9e;
     font-size: 20px;
     font-weight: 900;
   }
@@ -47,5 +55,5 @@ border-radius: 1em;
 }
 
 button {
-    height: 50px;
+    height: 30px;
 }
