@@ -53,7 +53,7 @@ const Checkout = ()=>{
         <CheckoutHeader />
         <OrderInfo />
         <CheckoutTable tableArray={tableArray} />
-        <h3>${price}</h3>
+        <h3>${price.toFixed(2)}</h3>
         <button onClick={()=>postOrder()}>Checkout</button>
         <br />
        
