@@ -31,7 +31,7 @@ const Checkout = ()=>{
         }
       });
 
-      let fullOrder = {...customerInfo, total: price, ...cart}
+      let fullOrder = {...customerInfo, total: price.toFixed(2), ...cart}
     //   console.log(fullOrder)
       const postOrder =()=>{
         axios.post('/api/order', fullOrder)

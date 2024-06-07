@@ -19,7 +19,7 @@ const Header = () => {
     <>
       <header className="App-header">
         <div className="App-title">Prime <span className="pizza_text">Pizza</span></div>
-        <div className="total"><span>{totalQuantity} Items in Cart</span><br/><span className="total">Total: {`$${price}`}</span></div>
+        <div className="total"><span>{totalQuantity} Items in Cart</span><br/><span className="total">Total: {`$${price.toFixed(2)}`}</span></div>
       </header>
     </>
   );
