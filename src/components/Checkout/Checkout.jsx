@@ -1,11 +1,14 @@
 import CheckoutHeader from "./CheckoutHeader"
 import CheckoutTable from "./CheckoutTable"
 import OrderInfo from "./OrderInfo"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 
 const Checkout = ()=>{
+    const dispatch = useDispatch()
+    const history = useHistory()
 
     const customerInfo = useSelector(store=>store.customerInfo)
     const cart = useSelector(store=>store.cart)
@@ -28,10 +31,12 @@ const Checkout = ()=>{
       });
 
       let fullOrder = {...customerInfo, total: price, ...cart}
-
+    //   console.log(fullOrder)
       const postOrder =()=>{
         axios.post('/api/order', fullOrder)
             .then(response =>{
+                dispatch({type: 'DROP_CART'})
+                history.push('/')
                 // dispatch to clear cart
                 // history to navigate to step 1
             })
