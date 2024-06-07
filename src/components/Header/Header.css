@@ -1,0 +1,17 @@
+.App-header {
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.total {
+    font-size: 30px;
+}
+
+.App-title{
+    padding-top: 20px;
+    font-family: monospace;
+    font-size: 80px;
+    font-weight: 900;
+}

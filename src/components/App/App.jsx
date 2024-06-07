@@ -5,6 +5,8 @@ import "./App.css";
 import PizzaShop from "../PizzaShop/PizzaShop";
 import PizzaForm from "../PizzaForm/PizzaForm";
 import Checkout from "../Checkout/Checkout";
+import AdminPage from "../AdminPage/AdminPage";
+import AdminHeader from "../AdminPage/AdminHeader";
 
 function App() {
   return (
@@ -22,6 +24,10 @@ function App() {
           <Checkout />
         </Route>
 
+<Route path='/admin'>
+  <AdminHeader />
+  <AdminPage />
+</Route>
       </Router>
     </div>
   );

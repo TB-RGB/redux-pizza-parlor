@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import './Header.css'
 
 const Header = () => {
   const cart = useSelector((store) => store.cart);
@@ -16,8 +17,8 @@ const Header = () => {
   return (
     <>
       <header className="App-header">
-        <h1 className="App-title">Prime Pizza</h1>
-        <span className="total">Total: {`$${price}`}</span>
+        <div className="App-title">Prime Pizza</div>
+        <div className="total"><span>{cart.pizzas.length} Items in Cart</span><br/><span className="total">Total: {`$${price}`}</span></div>
       </header>
     </>
   );

@@ -54,12 +54,21 @@ const cart = (state={ pizzas: []},action)=>{
   }
 }
 
+const orderList = (state=[], action) => {
+  switch(action.type){
+    case 'FETCH_ORDER':
+      return action.payload
+      default:
+      return state
+  }
+}
 
 const store = createStore(
   combineReducers({
     pizzas,
     customerInfo,
-    cart // 👈 Be sure to replace this, too!
+    cart,
+    orderList // 👈 Be sure to replace this, too!
   }),
   applyMiddleware(logger),
 );

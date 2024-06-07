@@ -26,20 +26,20 @@ const toggleDescription = () => {
         
         <div className="pizza_item_container">
             <div>
-                {pizza.id}
+                <strong>{pizza.id}</strong>
             </div>
             <div>
-                {pizza.name}
+            <strong>{pizza.name}</strong>
             </div>
             <div>
-                {pizza.price}
+            <strong>{pizza.price}</strong>
             </div>
            
             <div onClick={toggleDescription}>
             {showDescription ? <div className="center" ><p className='pizza_description'>{pizza.description}</p></div> : <img src={pizza.image_path}></img>}
             </div>
             <div className="clickable"onClick={() => toggleCart()}>
-                {inCart ? <p className='remove'>REMOVE</p> : <p className='add'>ADD</p>}
+                {inCart ? <button className='remove'>REMOVE</button> : <button className='add'>ADD</button>}
             </div>
             
 
