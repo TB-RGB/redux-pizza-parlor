@@ -19,6 +19,9 @@
 }
 
 .navigation_button {
-
+  align-items: center;
+  width: 80px;
   height: 30px;
+  display: flex;
+  justify-content: space-between;
 }

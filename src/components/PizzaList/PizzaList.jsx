@@ -25,7 +25,7 @@ const PizzaList = () => {
         </div>
         <div className="pizza_list">
         <div></div>
-        <button className="navigation_button" onClick={()=>history.push('/infoForm')}>Next</button>
+        <button className="navigation_button" onClick={()=>history.push('/infoForm')}><span>Next</span><span> ➡️</span></button>
         </div>
         </div>
     )

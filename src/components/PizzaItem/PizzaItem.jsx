@@ -51,7 +51,7 @@ const toggleDescription = () => {
             {showDescription ? <div className="center" ><p className='pizza_description'>{pizza.description}</p></div> : <img src={pizza.image_path}></img>}
             </div>
             <div className='spread'>
-                <button className="remove" onClick={() => {removePizza()}}>−</button><span className='pizzacount'>{pizzaCount}</span><button className='add' onClick={() => {addMorePizza()}}>✚</button>
+                <button className="remove" onClick={() => {removePizza()}}>−</button><span className='pizzacount'>{pizzaCount}</span><button className='add' onClick={() => {addMorePizza()}}>+</button>
             </div>
             
 
